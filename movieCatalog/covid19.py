@@ -27,7 +27,7 @@ def store(country, data):
         cursor.execute("UPDATE country_data SET count=? WHERE country=?", (curr_count, country))
     else:
         cases = data["response"][0]["cases"]["total"]
-        cursor.execute("INSERT INTO country_data (Country, Cases, Count) VALUES (?, ?, ?)", (country, cases, 1))
+        cursor.execute("INSERT INTO country_data (country, cases, count) VALUES (?, ?, ?)", (country, cases, 1))
 
     conn.commit()
     conn.close()
